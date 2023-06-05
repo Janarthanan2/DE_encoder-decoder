@@ -45,15 +45,54 @@ A0 = Y7 + Y5 + Y3 + Y1 <br>
 
 ## Program:
 
+Decoder
+
+         module decoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+         input a,b,c;
+         output d0,d1,d2,d3,d4,d5,d6,d7;
+         assign d0=((~a)&(~b)&(~c));
+         assign d1=((~a)&(~b)&c);
+         assign d2=((~a)&b&(~c));
+         assign d3=((~a)&b&c);
+         assign d4=(a&(~b)&(~c));
+         assign d5=(a&(~b)&c);
+         assign d6=(a&b&(~c));
+         assign d7=(a&b&c);
+         endmodule
+
+
+Encoder
+
+         module encoder(y0,y1,y2,y3,y4,y5,y6,y7,a0,a1,a2);
+         input y0,y1,y2,y3,y4,y5,y6,y7;
+         output a0,a1,a2;
+         assign a0=(y7|y5|y3|y1);
+         assign a1=(y7|y6|y3|y2);
+         assign a2=(y7|y6|y5|y4);
+         endmodule
 
 ## RTL Schematic:
+1) ENCODER:
 
 
+![243099060-42584ee4-8afe-4f18-ac1f-ad10e6f7a629](https://github.com/Janarthanan2/DE_encoder-decoder/assets/119393515/fd84918a-338c-4a6e-998b-6254d54633b8)
+
+
+2) DECODER:
+
+
+![243099074-861f7be9-050f-4a8f-a47e-bbdcb1a449a4](https://github.com/Janarthanan2/DE_encoder-decoder/assets/119393515/a16d54d1-0f07-433a-856d-3c3588114612)
 
 
 ## Timing Diagram:
+1) ENCODER:
+
+![243099130-451a4152-83fb-4cb5-ae0e-dfab7a28787e](https://github.com/Janarthanan2/DE_encoder-decoder/assets/119393515/8bc8c0de-6e99-420c-aa15-cd91edbc2bf9)
 
 
+2) DECODER:
+
+![243099143-244ed1a1-3064-4919-8546-5ff680554327](https://github.com/Janarthanan2/DE_encoder-decoder/assets/119393515/502c64f5-0d5c-49c2-999f-f82c097301ba)
 
 ## Result:
 Thus the decoder and encoder circuits are designed and implemented and the truth tables are verified.
